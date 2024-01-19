@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.con {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block; 
+    margin-bottom: 5px;
+}
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+ input[type="text"]{
+    margin-bottom: 15px;
+ }
+ input[type="password"]{
+    margin-bottom: 15px;
+ }
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+.additional-select input[type="radio"] {
+    opacity: 0; /* Скрываем стандартные чекбоксы */
+    position: absolute; /* Убираем стандартное положение чекбокса */
+}
+
+.additional-select label:not(.instruction-label) {
+    display: block;
+    position: relative;
+    padding-left: 30px; /* Расстояние между текстом и левым краем метки */
+    cursor: pointer;
+    line-height: 1.5; /* Выравнивание текста по центру */
+}
+
+.additional-select label:not(.instruction-label)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px; /* Ширина области для галочки */
+    height: 20px; /* Высота области для галочки */
+    border: 2px solid #333; /* Цвет границы области для галочки */
+    background-color: #fff; /* Фон области для галочки */
+    box-sizing: border-box;
+}
+
+/* Изменение стиля галочки при выборе */
+.additional-select input[type="radio"]:checked + label:not(.instruction-label)::before {
+    background-color: #2ecc71; /* Цвет фона для выбранных чекбоксов */
+    border-color: #2ecc71; /* Цвет границы для выбранных чекбоксов */
+}
+
+.question {
+        border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.accordion {
+    max-width: 600px;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.accordion-content {
+    max-height: 0;text-align: justify;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 100%;
+}
