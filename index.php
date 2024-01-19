@@ -19,7 +19,7 @@ session_start(); ?>
 
 </head>
 
-<body>
+<body>sss
     <div class="container">
         <h1>Добро пожаловать!</h1>
         <p>Прочтите документ <a href="Преамбола.pdf" target="_blank">Преамбула</a> перед заполнением анкеты.</p>
