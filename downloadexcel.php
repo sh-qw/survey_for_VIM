@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once 'db.php';
 // echo $_POST['start_date'];
@@ -45,7 +46,7 @@ $sql .= " ORDER BY result.date DESC";
 // Теперь у вас есть полный SQL запрос, который учитывает период при необходимости
 $userQuery = $db->query($sql);
 $userData = $userQuery->fetch_all(MYSQLI_ASSOC);
-if($userData == null){echo 'asdasdas'; $_SESSION['notif'] = 1;  header('Location: download.php');}else{
+if($userData == null){ $_SESSION['notif'] = 1;  header('Location: download.php');exit();}else{
 // Создание нового документа Excel
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
