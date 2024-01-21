@@ -1,5 +1,6 @@
 <?php
-session_start(); ?>
+session_start(); 
+include 'functions.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +22,12 @@ session_start(); ?>
 
 <body>
     <div class="container">
-        <h1>Добро пожаловать!</h1>
+        <h1>Добро пожаловать!</h1> 
+        <?php
+        $open = checkopen($db);
+
+        if($open == 1){
+        ?>
         <p>Прочтите документ <a href="Преамбола.pdf" target="_blank">Преамбула</a> перед заполнением анкеты.</p>
         <p>Ознакомьтесь с текстом ниже и приступайте к прохождению опроса</p>
 
@@ -148,6 +154,9 @@ session_start(); ?>
                 <input type="submit" value="Перейти к тесту">
             </form>
         </div>
+        <?php }else{
+            echo '<h3>В данный момент опрос закрыт, обратитесь к администратору';
+        };?>
     </div>
 
     <script>

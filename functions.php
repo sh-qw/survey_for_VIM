@@ -156,4 +156,11 @@ function pluralize($number, $singular, $plural1, $plural2)
         return $plural2;
     }
 }
+
+function checkopen($db){
+    $sql = "SELECT open FROM survey ";
+    $result = $db->query($sql);
+    $row = $result->fetch_assoc();
+    return $row['open'];
+}
 ?>

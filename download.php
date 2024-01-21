@@ -3,6 +3,13 @@ session_start(); ?><?php
 $notifValue = isset($_SESSION['notif']) ? $_SESSION['notif'] : 0;
 //echo $notifValue;
 // Обнуляем значение после использования
+include 'functions.php';
+$open = checkopen($db);
+if($open == 1){
+    $txtbuttonclose = 'Закрыть опрос'; 
+}else{
+    $txtbuttonclose = 'Открыть опрос';
+}
 $_SESSION['notif'] = 0;
 ?>
 <!DOCTYPE html>
@@ -14,12 +21,7 @@ $_SESSION['notif'] = 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .additional-select {
-            display: none;
-            margin-top: 10px;
-        }
-    </style>
+    
     <script>
         function toggleAccordion(header) {
             var accordionItem = header.parentNode;
@@ -72,6 +74,11 @@ $_SESSION['notif'] = 0;
             background-color: red;
             color: white;
             border-radius: 5px;
+        }
+
+        .close {
+
+        background-color: black;
         }
     </style>
 </head>
@@ -146,10 +153,23 @@ $_SESSION['notif'] = 0;
 
                 <input type="submit" id="download_button" value="Скачать">
             </form>
+            <form action="close.php" method="post" id="accept" onsubmit="return myFunction();">
+            <input type="submit" id="download_button" value="<?php echo $txtbuttonclose;?>" class="close" >
+            </form>
         </div>
     </div>
 
     <script>
+
+function myFunction() {
+  var txt;var form = document.getElementById('accept');
+  if (confirm("Вы уверены, что хотите <?php echo $txtbuttonclose;?>?")) {
+    
+    return true;
+  } else {
+    return false;
+  }
+}
     // Wait for the entire content of the page to be loaded
     document.addEventListener('DOMContentLoaded', function() {
         // Check the value of $_SESSION['notif']
